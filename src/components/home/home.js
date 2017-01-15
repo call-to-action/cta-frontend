@@ -34,9 +34,8 @@ export default class Home extends Component {
     }
 
 componentWillMount() {
-  Twilio.initWithTokenUrl('https://example.com/token');
-  // or 
-  Twilio.initWithToken('sometoken');
+  
+  Twilio.initWithToken('59d98177be998b46d59c8dc3ed432747');
   Twilio.addEventListener('deviceDidStartListening', this._deviceDidStartListening);
   Twilio.addEventListener('deviceDidStopListening', this._deviceDidStopListening);
   Twilio.addEventListener('deviceDidReceiveIncoming', this._deviceDidReceiveIncoming);
