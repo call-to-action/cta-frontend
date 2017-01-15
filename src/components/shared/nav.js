@@ -14,29 +14,20 @@ import {
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Iconz from 'react-native-vector-icons/Ionicons';
 
 export default class Nav extends Component {
     home() {
         return (
             <View  style={styles.container}>
                 <TouchableOpacity onPress={this.props.toProfile}>
-                    <Iconz
-                        name="ios-person"
-                        color ="#888"
-                        size={25}
-                        style={{margin:10}} />
+                    <Text>Profile</Text>
                 </TouchableOpacity>
                 <Image 
                     source ={require('../../assets/logo.png')}
                     resizeMode = "contain"
                     style={{width:100, height:30}} />
                 <TouchableOpacity onPress={this.props.chat}>
-                    <Iconz
-                        name="ios-chatboxes-outline"
-                        color ="#555"
-                        size={25}
-                        style={{margin:10}} />
+                    <Text>Messages</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -48,24 +39,13 @@ export default class Nav extends Component {
                 <Image source ={require('../../assets/logo.png')} resizeMode = "contain" style={{width:100, height:30}} />
                 <TouchableOpacity onPress ={this.props.onPress}>
                     <Image
-                        source = {require('../../assets/tinder.png')}
+                        source = {require('../../assets/logo.png')}
                         style = {{width:25, height:25, margin:10}} />
                 </TouchableOpacity>
             </View>
         );
     }
 
-    message(){
-        return (
-            <View  style={styles.container}>
-                <TouchableOpacity onPress ={this.props.onPress}>
-                    <Image source = {require('../../assets/tinder.png')} style = {{width:25, height:25, margin:10}}/>
-                </TouchableOpacity>
-                <Image source ={require('../../assets/logo.png')} resizeMode = "contain" style={{width:100, height:30}} />
-                <View style = {{width:25, height:25, margin:10}}/>
-            </View>
-        );
-    }
     render() {
         if(this.props.type == "message") {
             return (

@@ -16,7 +16,7 @@ import {
 } from 'react-native';
 
 var { height, width } = Dimensions.get('window');
-import Nav from './shared/nav'
+import Nav from '../shared/nav'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Iconz from 'react-native-vector-icons/Ionicons';
 
@@ -35,7 +35,7 @@ export default class Profile extends Component {
             <Nav  type = "profile" onPress = {() => this.props.navigator.replace({id:'home'})} />
             <ScrollView style={styles.container}>
                 <Image
-                    source={require('../assets/profile.jpg')}
+                    source={require('../../assets/profile.jpg')}
                     resizeMode="stretch"
                     style={{height:350, width:width}} />
                 <View style={[styles.row, {marginTop:15}]}>
@@ -77,61 +77,61 @@ export default class Profile extends Component {
                     <ScrollView horizontal = {true} >
                         <View style ={{}}>
                             <Image
-                                source={require('../assets/profile.jpg')}
+                                source={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                             <Image
-                                source ={require('../assets/profile.jpg')}
-                                resizeMode="stretch"
-                                style={{height:100, width:100, margin:5}} />
-                        </View>
-                        <View style ={{}}>
-                            <Image
-                                source={require('../assets/profile.jpg')}
-                                resizeMode="stretch"
-                                style={{height:100, width:100, margin:5}} />
-                            <Image
-                                source={require('../assets/profile.jpg')}
+                                source ={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                         </View>
                         <View style ={{}}>
                             <Image
-                                source={require('../assets/profile.jpg')}
+                                source={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                             <Image
-                                source={require('../assets/profile.jpg')}
-                                resizeMode="stretch"
-                                style={{height:100, width:100, margin:5}} />
-                        </View>
-                        <View style ={{}}>
-                            <Image
-                                source={require('../assets/profile.jpg')}
-                                resizeMode="stretch"
-                                style={{height:100, width:100, margin:5}} />
-                            <Image
-                                source={require('../assets/profile.jpg')}
+                                source={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                         </View>
                         <View style ={{}}>
                             <Image
-                                source={require('../assets/profile.jpg')}
+                                source={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                             <Image
-                                source={require('../assets/profile.jpg')}
+                                source={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                         </View>
                         <View style ={{}}>
                             <Image
-                                source={require('../assets/profile.jpg')}
+                                source={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                             <Image
-                                source={require('../assets/profile.jpg')}
+                                source={require('../../assets/profile.jpg')}
+                                resizeMode="stretch"
+                                style={{height:100, width:100, margin:5}} />
+                        </View>
+                        <View style ={{}}>
+                            <Image
+                                source={require('../../assets/profile.jpg')}
+                                resizeMode="stretch"
+                                style={{height:100, width:100, margin:5}} />
+                            <Image
+                                source={require('../../assets/profile.jpg')}
+                                resizeMode="stretch"
+                                style={{height:100, width:100, margin:5}} />
+                        </View>
+                        <View style ={{}}>
+                            <Image
+                                source={require('../../assets/profile.jpg')}
+                                resizeMode="stretch"
+                                style={{height:100, width:100, margin:5}} />
+                            <Image
+                                source={require('../../assets/profile.jpg')}
                                 resizeMode="stretch"
                                 style={{height:100, width:100, margin:5}} />
                         </View>

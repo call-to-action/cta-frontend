@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-
     StyleSheet,
     Image,
     Text,
@@ -10,7 +9,6 @@ import {
 } from 'react-native';
 
 import Home from './home/home';
-import Messages from './messages';
 import Profile from './profile/profile';
 
 
@@ -29,14 +27,6 @@ export default class Index extends Component {
                 <Home
                     { ...this.props } 
                     userData={ route.userData }
-                    navigator={ navigator } />
-            );
-        }
-        if (routeId === 'messages') {
-            return (
-                <Messages
-                    { ...this.props }
-                    userData ={ route.userData }
                     navigator={ navigator } />
             );
         }
