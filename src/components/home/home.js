@@ -15,7 +15,7 @@ import Nav from '../shared/nav'
 import SwipeCards from 'react-native-swipe-cards';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Iconz from 'react-native-vector-icons/Ionicons';
-const Twilio = require('react-native-twilio');
+import Twilio from 'react-native-twilio';
 
 export default class Home extends Component {
     constructor(props){
