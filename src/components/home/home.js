@@ -23,7 +23,7 @@ const Cards = [
         actionItem: 'Call your representatives to tell them you do not support this bill',
         phoneNumber: '2158576870',
         categories: [WOMENS_RIGHTS, REPRO_ISSUES],
-        creatorId: 'id_1',
+        createdBy: 'sashav@gmail.com',
     },
     {
         title: 'A new bill that would ban organizing.',
@@ -31,7 +31,7 @@ const Cards = [
         actionItem: 'Call your representatives to tell them you do not support this bill',
         phoneNumber: '2158576870',
         categories: [REPRO_ISSUES],
-        creatorId: 'id_2',
+        createdBy: 'mwm@cta.com',
     }
 ];
 
@@ -153,8 +153,9 @@ const styles = StyleSheet.create({
         backgroundColor: '#f7f7f7',
     },
     buttons:{
-        width:80, 
-        height:80, 
+        width:100, 
+        height:100, 
+        margin: 10,
         borderWidth:10, 
         borderColor:'#e7e7e7', 
         justifyContent:'center', 
@@ -162,8 +163,9 @@ const styles = StyleSheet.create({
         borderRadius:40
     },
     buttonSmall:{
-        width:50, 
-        height:50, 
+        width:70, 
+        height:70,
+        margin: 10,
         borderWidth:10, 
         borderColor:'#e7e7e7', 
         justifyContent:'center', 
@@ -171,7 +173,6 @@ const styles = StyleSheet.create({
         borderRadius:25
     },
     card: {
-        flex: 1,
         alignItems: 'center',
         alignSelf:'center',
         borderWidth:2,
