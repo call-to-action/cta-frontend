@@ -16,32 +16,21 @@ import SwipeCards from 'react-native-swipe-cards';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Iconz from 'react-native-vector-icons/Ionicons';
 
-const Cards = [
-    {
-        title: 'A new bill that would ban abortions.',
-        description: 'Banning abortions would lead to dangerous practices for people in need',
-        actionItem: 'Call your representatives to tell them you do not support this bill',
-        phoneNumber: '(202) 857-6870',
-        categories: [WOMENS_RIGHTS, REPRO_ISSUES],
-        createdBy: 'sashav@gmail.com',
-    },
-    {
-        title: 'A new bill that would ban organizing.',
-        description: 'Protesting is a right defined in the constitution',
-        actionItem: 'Call your representatives to tell them you do not support this bill',
-        phoneNumber: '(202) 687-3020',
-        categories: [CIVIL_RIGHTS],
-        createdBy: 'mwm@cta.com',
-    }
-];
-
 
 export default class Home extends Component {
     constructor(props){
         super(props)
         this.state = {
-            cards: Cards
+            cards: []
         }
+    }
+    componentDidMount() {
+        return fetch('https://cta-backend.herokuapp.com/cta/')
+            .then(response => {
+                const json = JSON.parse(response._bodyText);
+                console.log(json)
+                this.setState({ cards: json })
+            });
     }
     Card (x) {
         let categoryStr = '';
@@ -54,8 +43,8 @@ export default class Home extends Component {
                 <Text> Posted by {x.createdBy } </Text>
                 <View style={{width:350, alignItems:'center', justifyContent:'space-between'}}>
                     <View style={{ margin:15, marginTop:25, alignItems: 'center'}} >
-                        <Text style={{fontSize:18, fontWeight:'300', color:'#444'}}>
-                            {x.title},
+                        <Text style={{fontSize:18, fontWeight:'bold', color:'#444'}}>
+                            {x.title}
                         </Text>
                         <Text style={{fontSize:16, alignItems:'center', marginTop: 10, fontWeight:'200', color:'#444'}}>
                             {x.description}
@@ -79,42 +68,44 @@ export default class Home extends Component {
         )
     }
     handleYup (card) {
-        console.log(`Yup for ${card.text}`)
+        console.log(`Acted On for ${card.text}`)
     }
 
     handleNope (card) {
-        console.log(`Nope for ${card.text}`)
+        console.log(`Ignore for ${card.text}`)
     }
     noMore(){
         return (
             <View style={styles.card} >
                 <Text>No More Cards</Text>
             </View>
-            )
+        );
     }
 
     yup(){
-        console.log(this.refs['swiper'])
         this.refs['swiper']._goToNextCard()
     }
 
     nope(){
-        console.log(this.refs['swiper'])
         this.refs['swiper']._goToNextCard()
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Nav chat = {() => this.props.navigator.replace({id: "messages"})} toProfile = {() => this.props.navigator.replace({id:'profile'})} />
+                <Nav
+                    chat = {() => this.props.navigator.replace({id: "messages"})}
+                    toProfile = {() => this.props.navigator.replace({id:'profile'})} />
                 <SwipeCards
                     ref = {'swiper'}
                     cards={this.state.cards}
                     containerStyle = {{  backgroundColor: '#f7f7f7', alignItems:'center', margin:20}}
                     renderCard={(cardData) => this.Card(cardData)}
                     renderNoMoreCards={() => this.noMore()}
-                    handleYup={this.handleYup}
-                    handleNope={this.handleNope} />
+                    handleYup={ this.handleYup }
+                    yupText="Acted on"
+                    handleNope={ this.handleNope }
+                    nopeText="Ignored"/>
                 <View style={{flexDirection:'row', alignItems:'center', justifyContent:'center'}}>
                     <TouchableOpacity style = {styles.buttonNo} onPress = {() => this.nope()}>
                         <Text style={{ color: "#fff" }}>
@@ -150,7 +141,7 @@ const styles = StyleSheet.create({
         borderColor:'#B81F1F', 
         justifyContent:'center', 
         alignItems:'center',
-        borderRadius:40
+        borderRadius:15
     },
     buttonYes:{
         width:100, 
@@ -161,7 +152,7 @@ const styles = StyleSheet.create({
         borderColor:'#7DA360', 
         justifyContent:'center', 
         alignItems:'center',
-        borderRadius:40
+        borderRadius:15
     },
     buttonSmall:{
         width:70, 
@@ -171,11 +162,12 @@ const styles = StyleSheet.create({
         borderColor:'#e7e7e7', 
         justifyContent:'center', 
         alignItems:'center',
-        borderRadius:25
+        borderRadius:10
     },
     card: {
         alignItems: 'center',
         alignSelf:'center',
+        backgroundColor: '#E3F6FF',
         borderWidth:2,
         borderColor:'#068DBA',
         padding: 10,
