@@ -15,7 +15,7 @@ import Nav from '../shared/nav'
 import SwipeCards from 'react-native-swipe-cards';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Iconz from 'react-native-vector-icons/Ionicons';
-
+const Twilio = require('react-native-twilio');
 
 export default class Home extends Component {
     constructor(props){
@@ -32,6 +32,20 @@ export default class Home extends Component {
                 this.setState({ cards: json })
             });
     }
+
+componentWillMount() {
+  Twilio.initWithTokenUrl('https://example.com/token');
+  // or 
+  Twilio.initWithToken('sometoken');
+  Twilio.addEventListener('deviceDidStartListening', this._deviceDidStartListening);
+  Twilio.addEventListener('deviceDidStopListening', this._deviceDidStopListening);
+  Twilio.addEventListener('deviceDidReceiveIncoming', this._deviceDidReceiveIncoming);
+  Twilio.addEventListener('connectionDidStartConnecting', this._connectionDidStartConnecting);
+  Twilio.addEventListener('connectionDidConnect', this._connectionDidConnect);
+  Twilio.addEventListener('connectionDidDisconnect', this._connectionDidDisconnect);
+  Twilio.addEventListener('connectionDidFail', this._connectionDidFail);
+}
+
     Card (x) {
         let categoryStr = '';
         _.each(x.categories, category => {
@@ -54,7 +68,7 @@ export default class Home extends Component {
                         </Text>
                     </View>
                     <View style={{padding:13, alignItems:'center', justifyContent:'space-between'}}>
-                        <Text style={{fontSize:14, fontWeight:'bold', color:'#555'}}>
+                        <Text style={{fontSize:14, fontWeight:'bold', color:'#555'}} onPress="callme({x.number})">
                             {x.phone}
                         </Text>
                     </View>
@@ -80,6 +94,10 @@ export default class Home extends Component {
                 <Text>No More Cards</Text>
             </View>
         );
+    }
+
+    callme(num){
+        Twilio.connect({To: '+'num});
     }
 
     yup(){
