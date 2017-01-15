@@ -67,7 +67,7 @@ componentWillMount() {
                         </Text>
                     </View>
                     <View style={{padding:13, alignItems:'center', justifyContent:'space-between'}}>
-                        <Text style={{fontSize:14, fontWeight:'bold', color:'#555'}} onPress={ () => this. callme(x.phone) }>
+                        <Text style={{fontSize:14, fontWeight:'bold', color:'#555'}} onPress={ () => this.callme(x.phone) }>
                             {x.phone}
                         </Text>
                     </View>
