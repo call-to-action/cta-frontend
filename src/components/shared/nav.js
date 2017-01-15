@@ -22,10 +22,9 @@ export default class Nav extends Component {
                 <TouchableOpacity onPress={this.props.toProfile}>
                     <Text>Profile</Text>
                 </TouchableOpacity>
-                <Image 
-                    source ={require('../../assets/logo.png')}
-                    resizeMode = "contain"
-                    style={{width:100, height:30}} />
+                <View>
+                    <Text> Call to Action </Text>
+                </View>
                 <TouchableOpacity onPress={this.props.chat}>
                     <Text>Messages</Text>
                 </TouchableOpacity>
