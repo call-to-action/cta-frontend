@@ -40,26 +40,26 @@ export default class Home extends Component {
         return (
             <View
                 style={ styles.card }>
-                <Text> Posted by {x.createdBy } </Text>
+                <Text> Posted by {x.created_by } </Text>
                 <View style={{width:350, alignItems:'center', justifyContent:'space-between'}}>
                     <View style={{ margin:15, marginTop:25, alignItems: 'center'}} >
                         <Text style={{fontSize:18, fontWeight:'bold', color:'#444'}}>
                             {x.title}
                         </Text>
-                        <Text style={{fontSize:16, alignItems:'center', marginTop: 10, fontWeight:'200', color:'#444'}}>
+                        <Text style={{fontSize:14, alignItems:'center', marginTop: 10, fontWeight:'200', color:'#444'}}>
                             {x.description}
                         </Text>
-                        <Text style={{fontSize:16, alignItems:'center', marginTop: 10, fontWeight:'200', color:'#444'}}>
-                            {x.actionItem}
+                        <Text style={{fontSize:14, alignItems:'center', marginTop: 10, fontWeight:'200', color:'#444'}}>
+                            {x.action_item}
                         </Text>
                     </View>
                     <View style={{padding:13, alignItems:'center', justifyContent:'space-between'}}>
-                        <Text style={{fontSize:16, fontWeight:'200', color:'#555'}}>
-                            {x.phoneNumber}
+                        <Text style={{fontSize:14, fontWeight:'bold', color:'#555'}}>
+                            {x.phone}
                         </Text>
                     </View>
                     <View style={{padding:13, alignItems:'center', justifyContent:'space-between'}}>
-                        <Text style={{fontSize:12, fontWeight:'200', color:'#555'}}>
+                        <Text style={{fontSize:14, fontWeight:'200', color:'#555'}}>
                             { categoryStr }
                         </Text>
                     </View>
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         borderColor:'#B81F1F', 
         justifyContent:'center', 
         alignItems:'center',
-        borderRadius:15
+        borderRadius:50
     },
     buttonYes:{
         width:100, 
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
         borderColor:'#7DA360', 
         justifyContent:'center', 
         alignItems:'center',
-        borderRadius:15
+        borderRadius:50
     },
     buttonSmall:{
         width:70, 
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         borderColor:'#068DBA',
         padding: 10,
         width: 350,
-        height: 300,
+        height: 400,
     }
 
 });
