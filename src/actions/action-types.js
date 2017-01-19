@@ -1,1 +1,17 @@
+export const INIT_TELEPHONY_START     = 'INIT_TELEPHONY_START'
+export const DEVICE_READY             = 'DEVICE_READY'
+export const DEVICE_CREATION_FAILURE  = 'DEVICE_CREATION_FAILURE'
+export const CALL_START               = 'CALL_START'
+export const ACCEPT_CALL              = 'ACCEPT_CALL'
+export const IGNORE_CALL              = 'IGNORE_CALL'
+export const REJECT_CALL              = 'REJECT_CALL'
+export const END_CALL                 = 'END_CALL'
+export const CONNECTION_START         = 'CONNECTION_START'
+export const CONNECTION_SUCCESS       = 'CONNECTION_SUCCESS'
+export const CONNECTION_FAILURE       = 'CONNECTION_FAILURE'
+export const CONNECTION_STOP          = 'CONNECTION_STOP'
+export const DEVICE_LISTENING_START   = 'DEVICE_LISTENING_START'
+export const DEVICE_LISTENING_STOP    = 'DEVICE_LISTENING_STOP'
+export const DEVICE_RECEIVED_INCOMING = 'DEVICE_RECEIVED_INCOMING'
+
 export const SET_USER = 'SET_USER';

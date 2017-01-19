@@ -9,12 +9,17 @@ import {
     View
 } from 'react-native';
 
+import {
+    initTelephonyStart,
+    makeCallStart,
+    endCall,
+    acceptCall,
+} from '../../actions'
+
 import { CIVIL_RIGHTS, WOMENS_RIGHTS, REPRO_ISSUES } from '../../constants/categories';
 
 import Nav from '../shared/nav'
 import SwipeCards from 'react-native-swipe-cards';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import Iconz from 'react-native-vector-icons/Ionicons';
 import Twilio from 'react-native-twilio';
 
 export default class Home extends Component {
@@ -67,7 +72,7 @@ componentWillMount() {
                         </Text>
                     </View>
                     <View style={{padding:13, alignItems:'center', justifyContent:'space-between'}}>
-                        <Text style={{fontSize:14, fontWeight:'bold', color:'#555'}} onPress={ () => this.callme(x.phone) }>
+                        <Text style={{fontSize:14, fontWeight:'bold', color:'#555'}} onPress={ () => this.handleCall(x.phone) }>
                             {x.phone}
                         </Text>
                     </View>
@@ -79,6 +84,9 @@ componentWillMount() {
                 </View>
             </View>
         )
+    }
+    handleCall (num) {
+        Twilio.connect({ To: '+1'+ num });
     }
     handleYup (card) {
         console.log(`Acted On for ${card.text}`)
@@ -93,10 +101,6 @@ componentWillMount() {
                 <Text>No More Cards</Text>
             </View>
         );
-    }
-
-    callme (num) {
-        Twilio.connect({ To: '+'+ num });
     }
 
     yup(){
