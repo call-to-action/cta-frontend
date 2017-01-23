@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import {
@@ -20,9 +20,8 @@ import { CIVIL_RIGHTS, WOMENS_RIGHTS, REPRO_ISSUES } from '../../constants/categ
 
 import Nav from '../shared/nav'
 import SwipeCards from 'react-native-swipe-cards';
-import Twilio from 'react-native-twilio';
 
-export default class Home extends Component {
+export class Home extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -30,6 +29,7 @@ export default class Home extends Component {
         }
     }
     componentDidMount() {
+        initTelephonyStart();
         return fetch('https://cta-backend.herokuapp.com/cta/')
             .then(response => {
                 const json = JSON.parse(response._bodyText);
@@ -37,18 +37,6 @@ export default class Home extends Component {
                 this.setState({ cards: json })
             });
     }
-
-componentWillMount() {
-  
-  Twilio.initWithToken('59d98177be998b46d59c8dc3ed432747');
-  Twilio.addEventListener('deviceDidStartListening', this._deviceDidStartListening);
-  Twilio.addEventListener('deviceDidStopListening', this._deviceDidStopListening);
-  Twilio.addEventListener('deviceDidReceiveIncoming', this._deviceDidReceiveIncoming);
-  Twilio.addEventListener('connectionDidStartConnecting', this._connectionDidStartConnecting);
-  Twilio.addEventListener('connectionDidConnect', this._connectionDidConnect);
-  Twilio.addEventListener('connectionDidDisconnect', this._connectionDidDisconnect);
-  Twilio.addEventListener('connectionDidFail', this._connectionDidFail);
-}
 
     Card (x) {
         let categoryStr = '';
@@ -86,7 +74,7 @@ componentWillMount() {
         )
     }
     handleCall (num) {
-        Twilio.connect({ To: '+1'+ num });
+        makeCallStart()
     }
     handleYup (card) {
         console.log(`Acted On for ${card.text}`)
@@ -146,6 +134,15 @@ componentWillMount() {
         );
     }
 }
+Home.propTypes = {
+    initTelephonyStart: PropTypes.func.isRequired,
+    makeCallStart: PropTypes.func.isRequired,
+}
+
+export default connect(
+    undefined,
+    { initTelephonyStart, makeCallStart }
+)(Home);
 
 const styles = StyleSheet.create({
     container: {

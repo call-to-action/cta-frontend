@@ -1,10 +1,6 @@
-import qs from 'qs'
-
 import Twilio from 'react-native-twilio'
 
-import endpoints from './endpoints'
-
-import store from '../store'
+import { store } from '../index';
 
 import {
     deviceDidStartListening,
@@ -16,7 +12,7 @@ import {
     connectionDidConnect,
     connectionDidDisconnect,
     connectionDidFail,
-} from '../../actions'
+} from '../actions';
 
 function _deviceDidStartListening(params) {
     store.dispatch(deviceDidStartListening(params))

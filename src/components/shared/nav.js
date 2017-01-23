@@ -35,10 +35,10 @@ export default class Nav extends Component {
         return (
             <View  style={styles.container}>
                 <View style = {{width:25, height:25, margin:10}} />
-                <Image source ={require('../../assets/logo.png')} resizeMode = "contain" style={{width:100, height:30}} />
+                <Image source ={require('../../assets/logo.jpg')} resizeMode = "contain" style={{width:100, height:30}} />
                 <TouchableOpacity onPress ={this.props.onPress}>
                     <Image
-                        source = {require('../../assets/logo.png')}
+                        source = {require('../../assets/logo.jpg')}
                         style = {{width:25, height:25, margin:10}} />
                 </TouchableOpacity>
             </View>

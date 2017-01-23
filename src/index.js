@@ -11,7 +11,7 @@ import App from './components/';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
-const store = createStoreWithMiddleware(reducer);
+export const store = createStoreWithMiddleware(reducer);
 
 export default class Index extends Component {
     render() {
